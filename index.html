@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="container" id="top">
-        <!-- 头部标题 -->
         <header class="header">
             <h1>L-Mini Tools</h1>
             <p>小巧实用的工具与娱乐导航</p>
@@ -18,7 +17,6 @@
         <section class="section">
             <h2 class="section-title">工具类</h2>
             <div class="tools-grid">
-                <!-- 番茄钟 -->
                 <div class="tool-card" id="tomato-card" role="button" tabindex="0">
                     <img src="A1.png" alt="番茄钟" class="tool-image">
                     <div class="tool-info">
@@ -26,7 +24,6 @@
                         <p class="tool-desc">简洁优雅的专注计时器</p>
                     </div>
                 </div>
-                <!-- ECG · 心电监护 -->
                 <div class="tool-card" id="ecg-card" role="button" tabindex="0">
                     <img src="A2.png" alt="ECG · 心电监护" class="tool-image">
                     <div class="tool-info">
@@ -57,17 +54,17 @@
                         <img src="A3.jpg" alt="成员头像" class="member-avatar">
                     </div>
                     <span class="member-role">开发者 / 运营</span>
-                    <p class="member-desc">爱用ai的啥b</p>
+                    <p class="member-desc">运营不是给。爱用ai的啥b。</p>
                 </div>
 
-                <!-- 成员 2：新增 A4.jpg 头像 -->
+                <!-- 成员 2：A4.jpg 头像 + 恢复占位信息 -->
                 <div class="member-card" data-modal="member-modal-2" role="button" tabindex="0">
                     <div class="member-header">
-                        <div class="member-name">棍母</div>
+                        <div class="member-name">青山依旧</div>
                         <img src="A4.jpg" alt="成员头像" class="member-avatar">
                     </div>
-                    <span class="member-role">成员</span>
-                    <p class="member-desc empty">棍母棍母棍母</p>
+                    <span class="member-role">视频宣发（抖音）</span>
+                    <p class="member-desc empty">一名初中生，负责在抖音发视频</p>
                 </div>
 
                 <!-- 成员 3 -->
@@ -131,12 +128,9 @@
         </section>
     </div>
 
-    <!-- 复制提示 Toast -->
     <div class="toast" id="toast">已复制到剪贴板</div>
 
-    <!-- ================= 模态框区域 ================= -->
-
-    <!-- 番茄钟介绍页 Modal -->
+    <!-- 番茄钟 Modal -->
     <div class="modal-overlay" id="tomato-modal">
         <div class="modal-content">
             <button class="modal-close" data-close="tomato-modal" aria-label="关闭">✕</button>
@@ -166,7 +160,7 @@
         </div>
     </div>
 
-    <!-- ECG · 心电监护介绍页 Modal -->
+    <!-- ECG Modal -->
     <div class="modal-overlay" id="ecg-modal">
         <div class="modal-content">
             <button class="modal-close" data-close="ecg-modal" aria-label="关闭">✕</button>
@@ -205,9 +199,9 @@
         </div>
     </div>
 
-    <!-- ================= 成员详情模态框 ================= -->
+    <!-- ================= 成员模态框 ================= -->
 
-    <!-- 成员 1 模态框 -->
+    <!-- 成员 1 Modal -->
     <div class="modal-overlay" id="member-modal-1">
         <div class="modal-content member-modal-content">
             <button class="modal-close" data-close="member-modal-1" aria-label="关闭">✕</button>
@@ -225,15 +219,20 @@
                     <span class="value">3864967973</span>
                     <span class="copy-badge">点击复制</span>
                 </div>
+                <div class="copy-item" data-copy="13800138000" role="button" tabindex="0">
+                    <span class="label">手机号：</span>
+                    <span class="value">暂不提供</span>
+                    <span class="copy-badge">点击复制（这个不修了）</span>
+                </div>
                 <div class="copy-item" data-copy="hail@hotmail.com" role="button" tabindex="0">
-                    <span class="label">此开发者邮箱：</span>
+                    <span class="label">邮箱：</span>
                     <span class="value">hail@hotmail.com</span>
                     <span class="copy-badge">点击复制</span>
                 </div>
             </div>
             <div class="modal-section">
                 <h3>成员介绍</h3>
-                <p>爱用AI的啥b</p>
+                <p>我真的不是给。爱用AI的啥b。</p>
             </div>
             <div class="modal-section">
                 <h3>开发软件：</h3>
@@ -255,7 +254,7 @@
         </div>
     </div>
 
-    <!-- 成员 2 模态框：新增 A4.jpg -->
+    <!-- 成员 2 Modal：A4.jpg + 默认联系方式 -->
     <div class="modal-overlay" id="member-modal-2">
         <div class="modal-content member-modal-content">
             <button class="modal-close" data-close="member-modal-2" aria-label="关闭">✕</button>
@@ -263,18 +262,35 @@
             <div class="member-modal-header">
                 <img src="A4.jpg" alt="头像" class="member-modal-avatar">
                 <div class="member-modal-info">
-                    <div class="member-modal-name">名称：棍母棍母</div>
-                    <span class="member-modal-role">成员</span>
+                    <div class="member-modal-name">名称：青山依旧</div>
+                    <span class="member-modal-role">视频宣发（抖音）</span>
+                </div>
+            </div>
+            <div class="member-modal-copy-section">
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">QQ号：</span>
+                    <span class="value">3984650160</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">手机号：</span>
+                    <span class="value">暂不提供</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">邮箱：</span>
+                    <span class="value">xpq.8888.8888.8888@petalmail.com</span>
+                    <span class="copy-badge">点击复制</span>
                 </div>
             </div>
             <div class="modal-section">
                 <h3>成员介绍</h3>
-                <p class="empty">676767676767</p>
+                <p class="empty">一名初中生，负责在抖音上发视频。</p>
             </div>
         </div>
     </div>
 
-    <!-- 成员 3 模态框 -->
+    <!-- 成员 3 Modal -->
     <div class="modal-overlay" id="member-modal-3">
         <div class="modal-content member-modal-content">
             <button class="modal-close" data-close="member-modal-3" aria-label="关闭">✕</button>
@@ -286,6 +302,23 @@
                     <span class="member-modal-role">成员</span>
                 </div>
             </div>
+            <div class="member-modal-copy-section">
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">QQ号：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">手机号：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">邮箱：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+            </div>
             <div class="modal-section">
                 <h3>成员介绍</h3>
                 <p class="empty">（介绍待填写）</p>
@@ -293,7 +326,7 @@
         </div>
     </div>
 
-    <!-- 成员 4 模态框 -->
+    <!-- 成员 4 Modal -->
     <div class="modal-overlay" id="member-modal-4">
         <div class="modal-content member-modal-content">
             <button class="modal-close" data-close="member-modal-4" aria-label="关闭">✕</button>
@@ -305,6 +338,23 @@
                     <span class="member-modal-role">成员</span>
                 </div>
             </div>
+            <div class="member-modal-copy-section">
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">QQ号：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">手机号：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">邮箱：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+            </div>
             <div class="modal-section">
                 <h3>成员介绍</h3>
                 <p class="empty">（介绍待填写）</p>
@@ -312,7 +362,7 @@
         </div>
     </div>
 
-    <!-- 成员 5 模态框：新增 -->
+    <!-- 成员 5 Modal -->
     <div class="modal-overlay" id="member-modal-5">
         <div class="modal-content member-modal-content">
             <button class="modal-close" data-close="member-modal-5" aria-label="关闭">✕</button>
@@ -324,6 +374,23 @@
                     <span class="member-modal-role">成员</span>
                 </div>
             </div>
+            <div class="member-modal-copy-section">
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">QQ号：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">手机号：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">邮箱：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+            </div>
             <div class="modal-section">
                 <h3>成员介绍</h3>
                 <p class="empty">（介绍待填写）</p>
@@ -331,7 +398,7 @@
         </div>
     </div>
 
-    <!-- 成员 6 模态框：新增 -->
+    <!-- 成员 6 Modal -->
     <div class="modal-overlay" id="member-modal-6">
         <div class="modal-content member-modal-content">
             <button class="modal-close" data-close="member-modal-6" aria-label="关闭">✕</button>
@@ -341,6 +408,23 @@
                 <div class="member-modal-info">
                     <div class="member-modal-name">名称：（待填写）</div>
                     <span class="member-modal-role">成员</span>
+                </div>
+            </div>
+            <div class="member-modal-copy-section">
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">QQ号：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">手机号：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">邮箱：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
                 </div>
             </div>
             <div class="modal-section">
