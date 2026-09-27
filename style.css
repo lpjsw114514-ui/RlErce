@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-    -webkit-tap-highlight-color: transparent; /* 移除移动端点击高亮 */
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -13,11 +13,11 @@ body {
     display: flex;
     justify-content: center;
     padding: 2rem 1rem;
-    overflow-x: hidden; /* 防止横向滚动 */
+    overflow-x: hidden;
 }
 
 body.modal-open {
-    overflow: hidden; /* 模态框打开时禁止背景滚动 */
+    overflow: hidden;
 }
 
 .container {
@@ -85,8 +85,8 @@ body.modal-open {
     min-width: 260px;
     border: 1px solid rgba(255, 255, 255, 0.6);
     cursor: pointer;
-    user-select: none; /* 防止触控时选中文字 */
-    touch-action: manipulation; /* 减少移动端点击延迟 */
+    user-select: none;
+    touch-action: manipulation;
 }
 
 .tool-image {
@@ -141,11 +141,30 @@ body.modal-open {
     flex-direction: column;
 }
 
+.member-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-bottom: 0.75rem;
+}
+
 .member-name {
     font-size: 1.1rem;
     font-weight: 700;
     color: #1e293b;
-    margin-bottom: 0.75rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.member-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: #f3f4f6;
+    border: 2px solid #f3e8ff;
 }
 
 .member-role {
@@ -274,7 +293,7 @@ body.modal-open {
     width: 100%;
     max-height: 85vh;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch; /* 移动端滚动流畅 */
+    -webkit-overflow-scrolling: touch;
     border-radius: 32px;
     padding: 2.5rem 2.8rem;
     box-shadow: 0 25px 60px rgba(0,0,0,0.25);
@@ -476,6 +495,11 @@ body.modal-open {
 
     .tool-info .tool-desc {
         font-size: 0.8rem;
+    }
+
+    .member-avatar {
+        width: 40px;
+        height: 40px;
     }
 
     .footer-info {
