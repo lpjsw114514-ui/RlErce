@@ -51,126 +51,40 @@
             <div class="members-grid">
 
                 <!-- 成员 1：。 -->
-                <div class="member-card" data-member="1">
+                <div class="member-card" data-modal="member-modal-1" role="button" tabindex="0">
                     <div class="member-header">
                         <div class="member-name">。</div>
                         <img src="A3.jpg" alt="成员头像" class="member-avatar">
                     </div>
                     <span class="member-role">开发者 / 运营</span>
                     <p class="member-desc">爱用ai的啥b</p>
-
-                    <!-- 二级菜单 -->
-                    <div class="member-submenu">
-                        <div class="submenu-profile">
-                            <img src="A3.jpg" alt="头像" class="submenu-avatar">
-                            <div class="submenu-profile-info">
-                                <div class="submenu-line">
-                                    <span class="submenu-label">名称：</span>
-                                    <span class="submenu-value">。</span>
-                                </div>
-                                <span class="submenu-role">运营 / 开发者</span>
-                            </div>
-                        </div>
-
-                        <div class="copy-item" data-copy="3864967973" role="button" tabindex="0">
-                            <span class="label">QQ号：</span>
-                            <span class="value">3864967973</span>
-                            <span class="copy-badge">点击复制</span>
-                        </div>
-
-                        <div class="copy-item" data-copy="hail@hotmail.com" role="button" tabindex="0">
-                            <span class="label">此开发者邮箱：</span>
-                            <span class="value">hail@hotmail.com</span>
-                            <span class="copy-badge">点击复制</span>
-                        </div>
-
-                        <p class="submenu-desc">爱用AI的啥b</p>
-
-                        <div class="submenu-apps-title">开发软件：</div>
-                        <div class="submenu-apps">
-                            <div class="submenu-app" data-scroll="tomato-card" role="button" tabindex="0">
-                                <img src="A1.png" alt="番茄钟" class="submenu-app-icon">
-                                <span class="submenu-app-name">番茄钟</span>
-                            </div>
-                            <div class="submenu-app" data-scroll="ecg-card" role="button" tabindex="0">
-                                <img src="A2.png" alt="ECG" class="submenu-app-icon">
-                                <span class="submenu-app-name">ECG · 心电监护</span>
-                            </div>
-                            <div class="submenu-app" data-scroll="top" role="button" tabindex="0">
-                                <span class="submenu-app-placeholder">🏠</span>
-                                <span class="submenu-app-name">本站</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- 成员 2 -->
-                <div class="member-card" data-member="2">
+                <div class="member-card" data-modal="member-modal-2" role="button" tabindex="0">
                     <div class="member-header">
                         <div class="member-name">（待填写）</div>
                     </div>
                     <span class="member-role">成员</span>
                     <p class="member-desc empty">（介绍待填写）</p>
-
-                    <div class="member-submenu">
-                        <div class="submenu-profile">
-                            <div class="submenu-avatar placeholder">?</div>
-                            <div class="submenu-profile-info">
-                                <div class="submenu-line">
-                                    <span class="submenu-label">名称：</span>
-                                    <span class="submenu-value">（待填写）</span>
-                                </div>
-                                <span class="submenu-role">成员</span>
-                            </div>
-                        </div>
-                        <p class="submenu-desc empty">（介绍待填写）</p>
-                    </div>
                 </div>
 
                 <!-- 成员 3 -->
-                <div class="member-card" data-member="3">
+                <div class="member-card" data-modal="member-modal-3" role="button" tabindex="0">
                     <div class="member-header">
                         <div class="member-name">（待填写）</div>
                     </div>
                     <span class="member-role">成员</span>
                     <p class="member-desc empty">（介绍待填写）</p>
-
-                    <div class="member-submenu">
-                        <div class="submenu-profile">
-                            <div class="submenu-avatar placeholder">?</div>
-                            <div class="submenu-profile-info">
-                                <div class="submenu-line">
-                                    <span class="submenu-label">名称：</span>
-                                    <span class="submenu-value">（待填写）</span>
-                                </div>
-                                <span class="submenu-role">成员</span>
-                            </div>
-                        </div>
-                        <p class="submenu-desc empty">（介绍待填写）</p>
-                    </div>
                 </div>
 
                 <!-- 成员 4 -->
-                <div class="member-card" data-member="4">
+                <div class="member-card" data-modal="member-modal-4" role="button" tabindex="0">
                     <div class="member-header">
                         <div class="member-name">（待填写）</div>
                     </div>
                     <span class="member-role">成员</span>
                     <p class="member-desc empty">（介绍待填写）</p>
-
-                    <div class="member-submenu">
-                        <div class="submenu-profile">
-                            <div class="submenu-avatar placeholder">?</div>
-                            <div class="submenu-profile-info">
-                                <div class="submenu-line">
-                                    <span class="submenu-label">名称：</span>
-                                    <span class="submenu-value">（待填写）</span>
-                                </div>
-                                <span class="submenu-role">成员</span>
-                            </div>
-                        </div>
-                        <p class="submenu-desc empty">（介绍待填写）</p>
-                    </div>
                 </div>
 
             </div>
@@ -275,6 +189,117 @@
             </div>
             <div class="modal-actions">
                 <a href="https://xinlv.pages.dev" target="_blank" rel="noopener" class="modal-btn">前往使用 →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= 成员详情模态框 ================= -->
+
+    <!-- 成员 1 模态框 -->
+    <div class="modal-overlay" id="member-modal-1">
+        <div class="modal-content member-modal-content">
+            <button class="modal-close" data-close="member-modal-1" aria-label="关闭">✕</button>
+            <h2 class="modal-title">成员信息</h2>
+
+            <div class="member-modal-header">
+                <img src="A3.jpg" alt="头像" class="member-modal-avatar">
+                <div class="member-modal-info">
+                    <div class="member-modal-name">名称：。</div>
+                    <span class="member-modal-role">运营 / 开发者</span>
+                </div>
+            </div>
+
+            <div class="member-modal-copy-section">
+                <div class="copy-item" data-copy="3864967973" role="button" tabindex="0">
+                    <span class="label">QQ号：</span>
+                    <span class="value">3864967973</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="hail@hotmail.com" role="button" tabindex="0">
+                    <span class="label">此开发者邮箱：</span>
+                    <span class="value">hail@hotmail.com</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+            </div>
+
+            <div class="modal-section">
+                <h3>成员介绍</h3>
+                <p>爱用AI的啥b</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>开发软件：</h3>
+                <div class="member-apps-grid">
+                    <div class="submenu-app" data-scroll="tomato-card" role="button" tabindex="0">
+                        <img src="A1.png" alt="番茄钟" class="submenu-app-icon">
+                        <span class="submenu-app-name">番茄钟</span>
+                    </div>
+                    <div class="submenu-app" data-scroll="ecg-card" role="button" tabindex="0">
+                        <img src="A2.png" alt="ECG" class="submenu-app-icon">
+                        <span class="submenu-app-name">ECG · 心电监护</span>
+                    </div>
+                    <div class="submenu-app" data-scroll="top" role="button" tabindex="0">
+                        <span class="submenu-app-placeholder">🏠</span>
+                        <span class="submenu-app-name">本站</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 成员 2 模态框（留空占位） -->
+    <div class="modal-overlay" id="member-modal-2">
+        <div class="modal-content member-modal-content">
+            <button class="modal-close" data-close="member-modal-2" aria-label="关闭">✕</button>
+            <h2 class="modal-title">成员信息</h2>
+            <div class="member-modal-header">
+                <div class="member-modal-avatar placeholder">?</div>
+                <div class="member-modal-info">
+                    <div class="member-modal-name">名称：（待填写）</div>
+                    <span class="member-modal-role">成员</span>
+                </div>
+            </div>
+            <div class="modal-section">
+                <h3>成员介绍</h3>
+                <p class="empty">（介绍待填写）</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 成员 3 模态框（留空占位） -->
+    <div class="modal-overlay" id="member-modal-3">
+        <div class="modal-content member-modal-content">
+            <button class="modal-close" data-close="member-modal-3" aria-label="关闭">✕</button>
+            <h2 class="modal-title">成员信息</h2>
+            <div class="member-modal-header">
+                <div class="member-modal-avatar placeholder">?</div>
+                <div class="member-modal-info">
+                    <div class="member-modal-name">名称：（待填写）</div>
+                    <span class="member-modal-role">成员</span>
+                </div>
+            </div>
+            <div class="modal-section">
+                <h3>成员介绍</h3>
+                <p class="empty">（介绍待填写）</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 成员 4 模态框（留空占位） -->
+    <div class="modal-overlay" id="member-modal-4">
+        <div class="modal-content member-modal-content">
+            <button class="modal-close" data-close="member-modal-4" aria-label="关闭">✕</button>
+            <h2 class="modal-title">成员信息</h2>
+            <div class="member-modal-header">
+                <div class="member-modal-avatar placeholder">?</div>
+                <div class="member-modal-info">
+                    <div class="member-modal-name">名称：（待填写）</div>
+                    <span class="member-modal-role">成员</span>
+                </div>
+            </div>
+            <div class="modal-section">
+                <h3>成员介绍</h3>
+                <p class="empty">（介绍待填写）</p>
             </div>
         </div>
     </div>
