@@ -17,8 +17,6 @@
     --copy-border: #e2e8f0;
     --copy-badge-bg: #f1f5f9;
     --copy-badge-text: #94a3b8;
-    --submenu-bg: #f8fafc;
-    --submenu-border: #e2e8f0;
     --modal-bg: #ffffff;
     --modal-section-border: #e2e8f0;
     --close-bg: #f1f5f9;
@@ -47,8 +45,6 @@
         --copy-border: #475569;
         --copy-badge-bg: #475569;
         --copy-badge-text: #cbd5e1;
-        --submenu-bg: #0f172a;
-        --submenu-border: #334155;
         --modal-bg: #1e293b;
         --modal-section-border: #334155;
         --close-bg: #334155;
@@ -173,7 +169,7 @@ body.modal-open {
     line-height: 1.4;
 }
 
-/* 高亮效果（滚动定位时使用） */
+/* 高亮效果 */
 .tool-card.highlight {
     box-shadow: var(--highlight-glow), var(--card-shadow-hover);
     border-color: var(--accent);
@@ -212,12 +208,6 @@ body.modal-open {
     cursor: pointer;
     user-select: none;
     touch-action: manipulation;
-    overflow: hidden;
-}
-
-.member-card.expanded {
-    box-shadow: var(--card-shadow-hover);
-    border-color: var(--accent-border);
 }
 
 .member-header {
@@ -278,170 +268,6 @@ body.modal-open {
     font-style: italic;
 }
 
-/* ========== 成员二级菜单 ========== */
-.member-submenu {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease, padding-top 0.3s ease;
-    margin-top: 0;
-    padding-top: 0;
-    border-top: 1px solid transparent;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.member-card.expanded .member-submenu {
-    max-height: 1000px;
-    opacity: 1;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top-color: var(--submenu-border);
-}
-
-.submenu-profile {
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
-    padding: 0.6rem;
-    background: var(--submenu-bg);
-    border-radius: 16px;
-    border: 1px solid var(--submenu-border);
-}
-
-.submenu-avatar {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    object-fit: cover;
-    flex-shrink: 0;
-    background: var(--copy-bg);
-    border: 2px solid var(--accent-border);
-}
-
-.submenu-avatar.placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-faint);
-    font-size: 1.3rem;
-    border-color: var(--copy-border);
-}
-
-.submenu-profile-info {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-
-.submenu-line {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.2rem;
-    font-size: 0.95rem;
-}
-
-.submenu-label {
-    color: var(--text-secondary);
-    font-weight: 600;
-}
-
-.submenu-value {
-    color: var(--text-primary);
-    font-weight: 700;
-}
-
-.submenu-role {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--accent);
-    background: var(--accent-bg);
-    padding: 0.15rem 0.6rem;
-    border-radius: 12px;
-    display: inline-block;
-    align-self: flex-start;
-}
-
-.submenu-desc {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-    padding: 0 0.2rem;
-}
-
-.submenu-desc.empty {
-    color: var(--text-faint);
-    font-style: italic;
-}
-
-.submenu-apps-title {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    padding: 0 0.2rem;
-    margin-top: 0.3rem;
-}
-
-.submenu-apps {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.6rem;
-}
-
-.submenu-app {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    padding: 0.8rem 0.4rem;
-    background: var(--copy-bg);
-    border: 1px solid var(--copy-border);
-    border-radius: 16px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    touch-action: manipulation;
-    user-select: none;
-    text-align: center;
-}
-
-.submenu-app:active {
-    transform: scale(0.96);
-}
-
-.submenu-app-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    object-fit: cover;
-    flex-shrink: 0;
-    background: var(--card-bg);
-}
-
-.submenu-app-placeholder {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    background: var(--card-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-}
-
-.submenu-app-name {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    line-height: 1.2;
-    word-break: break-word;
-}
-
 /* ========== 底部信息 ========== */
 .footer-info {
     background: var(--card-bg);
@@ -470,6 +296,8 @@ body.modal-open {
     font-size: 0.9rem;
     color: var(--text-primary);
     touch-action: manipulation;
+    flex: 1;
+    min-width: 0;
 }
 
 .copy-item:active {
@@ -487,6 +315,8 @@ body.modal-open {
     font-weight: 500;
     color: var(--text-primary);
     word-break: break-all;
+    flex: 1;
+    min-width: 0;
 }
 
 .copy-item .copy-badge {
@@ -543,7 +373,7 @@ body.modal-open {
 .modal-content {
     background: var(--modal-bg);
     color: var(--text-primary);
-    max-width: 700px;
+    max-width: 600px;
     width: 100%;
     max-height: 85vh;
     overflow-y: auto;
@@ -621,18 +451,15 @@ body.modal-open {
     margin-bottom: 0.5rem;
 }
 
-.modal-section p, .modal-section ul {
+.modal-section p {
     color: var(--text-secondary);
     line-height: 1.7;
     font-size: 0.95rem;
 }
 
-.modal-section ul {
-    padding-left: 1.2rem;
-}
-
-.modal-section li {
-    margin-bottom: 0.3rem;
+.modal-section p.empty {
+    color: var(--text-faint);
+    font-style: italic;
 }
 
 .modal-actions {
@@ -663,6 +490,126 @@ body.modal-open {
     transform: scale(0.98);
 }
 
+/* ========== 成员模态框专属样式 ========== */
+.member-modal-content {
+    max-width: 540px;
+}
+
+.member-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--modal-section-border);
+}
+
+.member-modal-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--copy-bg);
+    border: 3px solid var(--accent-border);
+}
+
+.member-modal-avatar.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-faint);
+    font-size: 1.8rem;
+    border-color: var(--copy-border);
+}
+
+.member-modal-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.member-modal-name {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+}
+
+.member-modal-role {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-bg);
+    padding: 0.25rem 0.8rem;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.member-modal-copy-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+/* 开发软件格子 */
+.member-apps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+}
+
+.submenu-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1.2rem 0.5rem;
+    background: var(--copy-bg);
+    border: 1px solid var(--copy-border);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    touch-action: manipulation;
+    user-select: none;
+    text-align: center;
+}
+
+.submenu-app:active {
+    transform: scale(0.95);
+}
+
+.submenu-app-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--card-bg);
+}
+
+.submenu-app-placeholder {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.submenu-app-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+    word-break: break-word;
+}
+
 /* ========== 仅在支持 hover 的设备上启用悬停效果 ========== */
 @media (hover: hover) {
     .tool-card:hover {
@@ -673,6 +620,7 @@ body.modal-open {
 
     .member-card:hover {
         box-shadow: var(--card-shadow-hover);
+        border-color: var(--accent-border);
     }
 
     .copy-item:hover {
@@ -817,7 +765,36 @@ body.modal-open {
         font-size: 1.2rem;
     }
 
-    .submenu-apps {
-        grid-template-columns: 1fr 1fr;
+    .member-modal-header {
+        gap: 0.8rem;
+        margin-bottom: 1.2rem;
+        padding-bottom: 1rem;
+    }
+
+    .member-modal-avatar {
+        width: 56px;
+        height: 56px;
+    }
+
+    .member-modal-name {
+        font-size: 1.1rem;
+    }
+
+    .member-apps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+    }
+
+    .submenu-app {
+        padding: 0.8rem 0.4rem;
+    }
+
+    .submenu-app-icon, .submenu-app-placeholder {
+        width: 36px;
+        height: 36px;
+    }
+
+    .submenu-app-name {
+        font-size: 0.7rem;
     }
 }
