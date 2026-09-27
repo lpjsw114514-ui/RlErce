@@ -69,6 +69,29 @@ function bindCardClick(elementId, modalId) {
 bindCardClick('tomato-card', 'tomato-modal');
 bindCardClick('ecg-card', 'ecg-modal');
 
+// ========== 成员卡片点击事件（弹出模态框） ==========
+document.querySelectorAll('.member-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+        // 防止点击内部可交互元素时触发弹窗
+        if (e.target.closest('.copy-item') || e.target.closest('.submenu-app')) return;
+        const modalId = this.getAttribute('data-modal');
+        if (modalId) {
+            openModal(modalId);
+        }
+    });
+
+    card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            if (e.target.closest('.copy-item') || e.target.closest('.submenu-app')) return;
+            e.preventDefault();
+            const modalId = this.getAttribute('data-modal');
+            if (modalId) {
+                openModal(modalId);
+            }
+        }
+    });
+});
+
 // ========== 复制功能 ==========
 (function() {
     const toast = document.getElementById('toast');
@@ -116,57 +139,32 @@ bindCardClick('ecg-card', 'ecg-modal');
         document.body.removeChild(textarea);
     }
 
-    // 绑定所有 copy-item（包括底部和成员二级菜单内的）
-    document.querySelectorAll('.copy-item').forEach(item => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const textToCopy = this.getAttribute('data-copy');
-            if (!textToCopy) return;
-            copyText(textToCopy);
-        });
-
-        item.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                e.stopPropagation();
-                const textToCopy = this.getAttribute('data-copy');
-                if (!textToCopy) return;
-                copyText(textToCopy);
-            }
-        });
+    // 绑定所有 copy-item（全局捕获，包含模态框内的）
+    document.addEventListener('click', function(e) {
+        const item = e.target.closest('.copy-item');
+        if (!item) return;
+        
+        e.preventDefault();
+        e.stopPropagation();
+        const textToCopy = item.getAttribute('data-copy');
+        if (!textToCopy) return;
+        copyText(textToCopy);
     });
 
-    // 暴露给内部使用
-    window.__copyText = copyText;
-})();
-
-// ========== 成员卡片二级菜单展开/收起 ==========
-(function() {
-    document.querySelectorAll('.member-card').forEach(card => {
-        card.addEventListener('click', function(e) {
-            // 点击内部可交互元素时不触发折叠
-            if (e.target.closest('.copy-item') ||
-                e.target.closest('.submenu-app') ||
-                e.target.closest('.member-submenu .submenu-avatar') ||
-                e.target.closest('.member-submenu .submenu-avatar.placeholder')) {
-                return;
-            }
-            this.classList.toggle('expanded');
-        });
-
-        // 键盘支持
-        card.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                if (e.target.closest('.copy-item') || e.target.closest('.submenu-app')) return;
-                e.preventDefault();
-                this.classList.toggle('expanded');
-            }
-        });
+    document.addEventListener('keydown', function(e) {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        const item = e.target.closest('.copy-item');
+        if (!item) return;
+        
+        e.preventDefault();
+        e.stopPropagation();
+        const textToCopy = item.getAttribute('data-copy');
+        if (!textToCopy) return;
+        copyText(textToCopy);
     });
 })();
 
-// ========== 二级菜单内的开发软件格子点击（滚动到上方对应卡片） ==========
+// ========== 开发软件格子点击（跳转到上方卡片） ==========
 (function() {
     function scrollToTarget(targetId) {
         if (targetId === 'top') {
@@ -176,7 +174,6 @@ bindCardClick('ecg-card', 'ecg-modal');
         const target = document.getElementById(targetId);
         if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            // 高亮提示
             target.classList.add('highlight');
             setTimeout(() => {
                 target.classList.remove('highlight');
@@ -189,7 +186,15 @@ bindCardClick('ecg-card', 'ecg-modal');
             e.preventDefault();
             e.stopPropagation();
             const targetId = this.getAttribute('data-scroll');
-            if (targetId) scrollToTarget(targetId);
+            if (targetId) {
+                // 先关闭当前模态框
+                const modal = this.closest('.modal-overlay');
+                if (modal) closeModal(modal.id);
+                // 稍等片刻再滚动（等模态框关闭动画完成）
+                setTimeout(() => {
+                    scrollToTarget(targetId);
+                }, 350);
+            }
         });
 
         app.addEventListener('keydown', function(e) {
@@ -197,21 +202,26 @@ bindCardClick('ecg-card', 'ecg-modal');
                 e.preventDefault();
                 e.stopPropagation();
                 const targetId = this.getAttribute('data-scroll');
-                if (targetId) scrollToTarget(targetId);
+                if (targetId) {
+                    const modal = this.closest('.modal-overlay');
+                    if (modal) closeModal(modal.id);
+                    setTimeout(() => {
+                        scrollToTarget(targetId);
+                    }, 350);
+                }
             }
         });
     });
 })();
 
-// ========== 深色模式变化监听（可选，用于未来扩展） ==========
+// ========== 深色模式监听 ==========
 (function() {
     if (window.matchMedia) {
         const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        // 现代浏览器会自动应用 CSS 媒体查询，无需手动处理
-        // 此处保留监听接口，方便未来扩展
         if (darkModeQuery.addEventListener) {
             darkModeQuery.addEventListener('change', () => {
-                // 可根据需要添加额外的逻辑
+                // 现代浏览器会自动应用 CSS 媒体查询
+                // 此处保留监听接口，方便未来扩展
             });
         }
     }
