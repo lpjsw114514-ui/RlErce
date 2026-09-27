@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="top">
         <!-- 头部标题 -->
         <header class="header">
             <h1>L-Mini Tools</h1>
@@ -49,39 +49,130 @@
         <section class="section">
             <h2 class="section-title">成员页</h2>
             <div class="members-grid">
-                <!-- 成员 1 -->
-                <div class="member-card">
+
+                <!-- 成员 1：。 -->
+                <div class="member-card" data-member="1">
                     <div class="member-header">
                         <div class="member-name">。</div>
                         <img src="A3.jpg" alt="成员头像" class="member-avatar">
                     </div>
                     <span class="member-role">开发者 / 运营</span>
                     <p class="member-desc">爱用ai的啥b</p>
+
+                    <!-- 二级菜单 -->
+                    <div class="member-submenu">
+                        <div class="submenu-profile">
+                            <img src="A3.jpg" alt="头像" class="submenu-avatar">
+                            <div class="submenu-profile-info">
+                                <div class="submenu-line">
+                                    <span class="submenu-label">名称：</span>
+                                    <span class="submenu-value">。</span>
+                                </div>
+                                <span class="submenu-role">运营 / 开发者</span>
+                            </div>
+                        </div>
+
+                        <div class="copy-item" data-copy="3864967973" role="button" tabindex="0">
+                            <span class="label">QQ号：</span>
+                            <span class="value">3864967973</span>
+                            <span class="copy-badge">点击复制</span>
+                        </div>
+
+                        <div class="copy-item" data-copy="hail@hotmail.com" role="button" tabindex="0">
+                            <span class="label">此开发者邮箱：</span>
+                            <span class="value">hail@hotmail.com</span>
+                            <span class="copy-badge">点击复制</span>
+                        </div>
+
+                        <p class="submenu-desc">爱用AI的啥b</p>
+
+                        <div class="submenu-apps-title">开发软件：</div>
+                        <div class="submenu-apps">
+                            <div class="submenu-app" data-scroll="tomato-card" role="button" tabindex="0">
+                                <img src="A1.png" alt="番茄钟" class="submenu-app-icon">
+                                <span class="submenu-app-name">番茄钟</span>
+                            </div>
+                            <div class="submenu-app" data-scroll="ecg-card" role="button" tabindex="0">
+                                <img src="A2.png" alt="ECG" class="submenu-app-icon">
+                                <span class="submenu-app-name">ECG · 心电监护</span>
+                            </div>
+                            <div class="submenu-app" data-scroll="top" role="button" tabindex="0">
+                                <span class="submenu-app-placeholder">🏠</span>
+                                <span class="submenu-app-name">本站</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <!-- 成员 2 -->
-                <div class="member-card">
+                <div class="member-card" data-member="2">
                     <div class="member-header">
                         <div class="member-name">（待填写）</div>
                     </div>
                     <span class="member-role">成员</span>
                     <p class="member-desc empty">（介绍待填写）</p>
+
+                    <div class="member-submenu">
+                        <div class="submenu-profile">
+                            <div class="submenu-avatar placeholder">?</div>
+                            <div class="submenu-profile-info">
+                                <div class="submenu-line">
+                                    <span class="submenu-label">名称：</span>
+                                    <span class="submenu-value">（待填写）</span>
+                                </div>
+                                <span class="submenu-role">成员</span>
+                            </div>
+                        </div>
+                        <p class="submenu-desc empty">（介绍待填写）</p>
+                    </div>
                 </div>
+
                 <!-- 成员 3 -->
-                <div class="member-card">
+                <div class="member-card" data-member="3">
                     <div class="member-header">
                         <div class="member-name">（待填写）</div>
                     </div>
                     <span class="member-role">成员</span>
                     <p class="member-desc empty">（介绍待填写）</p>
+
+                    <div class="member-submenu">
+                        <div class="submenu-profile">
+                            <div class="submenu-avatar placeholder">?</div>
+                            <div class="submenu-profile-info">
+                                <div class="submenu-line">
+                                    <span class="submenu-label">名称：</span>
+                                    <span class="submenu-value">（待填写）</span>
+                                </div>
+                                <span class="submenu-role">成员</span>
+                            </div>
+                        </div>
+                        <p class="submenu-desc empty">（介绍待填写）</p>
+                    </div>
                 </div>
+
                 <!-- 成员 4 -->
-                <div class="member-card">
+                <div class="member-card" data-member="4">
                     <div class="member-header">
                         <div class="member-name">（待填写）</div>
                     </div>
                     <span class="member-role">成员</span>
                     <p class="member-desc empty">（介绍待填写）</p>
+
+                    <div class="member-submenu">
+                        <div class="submenu-profile">
+                            <div class="submenu-avatar placeholder">?</div>
+                            <div class="submenu-profile-info">
+                                <div class="submenu-line">
+                                    <span class="submenu-label">名称：</span>
+                                    <span class="submenu-value">（待填写）</span>
+                                </div>
+                                <span class="submenu-role">成员</span>
+                            </div>
+                        </div>
+                        <p class="submenu-desc empty">（介绍待填写）</p>
+                    </div>
                 </div>
+
             </div>
         </section>
 
@@ -102,7 +193,7 @@
                 </div>
                 <!-- 邮箱 -->
                 <div class="copy-item" data-copy="hail@hotmail.com" role="button" tabindex="0">
-                    <span class="label">运营邮箱：</span>
+                    <span class="label">开发者邮箱：</span>
                     <span class="value">hail@hotmail.com</span>
                     <span class="copy-badge">点击复制</span>
                 </div>
@@ -114,7 +205,7 @@
     <div class="toast" id="toast">已复制到剪贴板</div>
 
     <!-- ================= 模态框区域 ================= -->
-    
+
     <!-- 番茄钟介绍页 Modal -->
     <div class="modal-overlay" id="tomato-modal">
         <div class="modal-content">
