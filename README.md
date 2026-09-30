@@ -80,7 +80,7 @@
 
 - **QQ 交流群**：1125056067
 - **GitHub**：https://github.com/lpjsw114514-ui/
-- **开发者邮箱**：hail@hotmail.com
+- **开发者邮箱**：kskbl114514@hotmail.com
 
 ## 📄 许可证
 
