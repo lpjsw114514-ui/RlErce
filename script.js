@@ -68,11 +68,11 @@ function bindCardClick(elementId, modalId) {
 
 bindCardClick('tomato-card', 'tomato-modal');
 bindCardClick('ecg-card', 'ecg-modal');
+bindCardClick('wujing-card', 'wujing-modal');
 
 // ========== 成员卡片点击事件（弹出模态框） ==========
 document.querySelectorAll('.member-card').forEach(card => {
     card.addEventListener('click', function(e) {
-        // 防止点击内部可交互元素时触发弹窗
         if (e.target.closest('.copy-item') || e.target.closest('.submenu-app')) return;
         const modalId = this.getAttribute('data-modal');
         if (modalId) {
@@ -139,11 +139,10 @@ document.querySelectorAll('.member-card').forEach(card => {
         document.body.removeChild(textarea);
     }
 
-    // 绑定所有 copy-item（全局捕获，包含模态框内的）
     document.addEventListener('click', function(e) {
         const item = e.target.closest('.copy-item');
         if (!item) return;
-        
+
         e.preventDefault();
         e.stopPropagation();
         const textToCopy = item.getAttribute('data-copy');
@@ -155,7 +154,7 @@ document.querySelectorAll('.member-card').forEach(card => {
         if (e.key !== 'Enter' && e.key !== ' ') return;
         const item = e.target.closest('.copy-item');
         if (!item) return;
-        
+
         e.preventDefault();
         e.stopPropagation();
         const textToCopy = item.getAttribute('data-copy');
@@ -187,10 +186,8 @@ document.querySelectorAll('.member-card').forEach(card => {
             e.stopPropagation();
             const targetId = this.getAttribute('data-scroll');
             if (targetId) {
-                // 先关闭当前模态框
                 const modal = this.closest('.modal-overlay');
                 if (modal) closeModal(modal.id);
-                // 稍等片刻再滚动（等模态框关闭动画完成）
                 setTimeout(() => {
                     scrollToTarget(targetId);
                 }, 350);
@@ -221,7 +218,6 @@ document.querySelectorAll('.member-card').forEach(card => {
         if (darkModeQuery.addEventListener) {
             darkModeQuery.addEventListener('change', () => {
                 // 现代浏览器会自动应用 CSS 媒体查询
-                // 此处保留监听接口，方便未来扩展
             });
         }
     }
