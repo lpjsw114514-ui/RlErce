@@ -169,7 +169,6 @@ body.modal-open {
     line-height: 1.4;
 }
 
-/* 高亮效果 */
 .tool-card.highlight {
     box-shadow: var(--highlight-glow), var(--card-shadow-hover);
     border-color: var(--accent);
@@ -462,6 +461,17 @@ body.modal-open {
     font-style: italic;
 }
 
+.modal-section ul {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    padding-left: 1.2rem;
+}
+
+.modal-section li {
+    margin-bottom: 0.3rem;
+}
+
 .modal-actions {
     display: flex;
     gap: 1rem;
@@ -488,6 +498,14 @@ body.modal-open {
 
 .modal-btn:active {
     transform: scale(0.98);
+}
+
+/* WUJING 模态框备用按钮 */
+.modal-btn-secondary {
+    background: var(--copy-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--copy-border);
+    box-shadow: none;
 }
 
 /* ========== 成员模态框专属样式 ========== */
@@ -610,7 +628,7 @@ body.modal-open {
     word-break: break-word;
 }
 
-/* ========== 仅在支持 hover 的设备上启用悬停效果 ========== */
+/* ========== 悬停效果 ========== */
 @media (hover: hover) {
     .tool-card:hover {
         transform: translateY(-4px);
@@ -648,6 +666,14 @@ body.modal-open {
     .modal-btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 24px rgba(255, 77, 77, 0.4);
+    }
+
+    .modal-btn-secondary:hover {
+        background: var(--accent-bg);
+        border-color: var(--accent-border);
+        color: var(--accent);
+        box-shadow: none;
+        transform: translateY(-2px);
     }
 }
 
@@ -750,6 +776,7 @@ body.modal-open {
     .modal-actions {
         margin-top: 1.5rem;
         padding-top: 1.2rem;
+        flex-direction: column;
     }
 
     .modal-btn {
