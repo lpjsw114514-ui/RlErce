@@ -82,10 +82,6 @@
 - **GitHub**：https://github.com/lpjsw114514-ui/
 - **开发者邮箱**：kskbl114514@hotmail.com
 
-## 📄 许可证
-
-本项目采用 MIT 许可证，详情请见 [LICENSE](LICENSE) 文件（若未添加，可自行创建）。
-
 ---
 
 **L-Mini Tools** · 小巧实用的工具与娱乐导航
