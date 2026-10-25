@@ -97,19 +97,19 @@ document.querySelectorAll('.member-card').forEach(card => {
     const toast = document.getElementById('toast');
     let toastTimer = null;
 
-    function showToast(message) {
+    window.showToast = function(message) {
         toast.textContent = message || '已复制到剪贴板';
         toast.classList.add('show');
         if (toastTimer) clearTimeout(toastTimer);
         toastTimer = setTimeout(() => {
             toast.classList.remove('show');
         }, 2000);
-    }
+    };
 
     function copyText(text) {
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(text).then(() => {
-                showToast('已复制：' + text);
+                window.showToast('已复制：' + text);
             }).catch(() => {
                 fallbackCopy(text);
             });
@@ -129,12 +129,12 @@ document.querySelectorAll('.member-card').forEach(card => {
         try {
             const successful = document.execCommand('copy');
             if (successful) {
-                showToast('已复制：' + text);
+                window.showToast('已复制：' + text);
             } else {
-                showToast('复制失败，请手动复制');
+                window.showToast('复制失败，请手动复制');
             }
         } catch (err) {
-            showToast('复制失败，请手动复制');
+            window.showToast('复制失败，请手动复制');
         }
         document.body.removeChild(textarea);
     }
@@ -222,3 +222,30 @@ document.querySelectorAll('.member-card').forEach(card => {
         }
     }
 })();
+
+// ========== 番茄钟下载区交互 ==========
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('toggle-download');
+    const optionsDiv = document.getElementById('download-options');
+    
+    if (toggleBtn && optionsDiv) {
+        toggleBtn.addEventListener('click', function() {
+            optionsDiv.classList.toggle('active');
+            if (optionsDiv.classList.contains('active')) {
+                toggleBtn.textContent = '收起下载选项';
+            } else {
+                toggleBtn.textContent = '立刻下载';
+            }
+        });
+    }
+
+    // 处理 "暂不支持" 按钮
+    document.querySelectorAll('[data-action="not-supported"]').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (typeof window.showToast === 'function') {
+                window.showToast('暂不支持');
+            }
+        });
+    });
+});
