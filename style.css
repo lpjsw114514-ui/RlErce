@@ -332,20 +332,20 @@ body.modal-open {
 /* ========== 复制提示 Toast ========== */
 .toast {
     position: fixed;
-    bottom: 2rem;
+    top: 2rem; /* 修改为顶部显示 */
     left: 50%;
-    transform: translateX(-50%) translateY(120%);
+    transform: translateX(-50%) translateY(-150%); /* 初始状态偏上 */
     background: var(--text-primary);
     color: var(--card-bg);
     padding: 0.75rem 2rem;
     border-radius: 999px;
     font-size: 0.9rem;
     font-weight: 500;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
     opacity: 0;
     pointer-events: none;
-    z-index: 999;
+    z-index: 9999; /* 提高层级，防止被模态框遮挡 */
 }
 
 .toast.show {
