@@ -24,18 +24,14 @@ function closeModal(id) {
 // 点击遮罩关闭弹窗 + ESC 关闭
 document.querySelectorAll('.modal-overlay').forEach(overlay => {
     overlay.addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeModal(this.id);
-        }
+        if (e.target === this) closeModal(this.id);
     });
 });
 
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         document.querySelectorAll('.modal-overlay').forEach(modal => {
-            if (modal.style.display === 'flex') {
-                closeModal(modal.id);
-            }
+            if (modal.style.display === 'flex') closeModal(modal.id);
         });
     }
 });
@@ -75,9 +71,7 @@ document.querySelectorAll('.member-card').forEach(card => {
     card.addEventListener('click', function(e) {
         if (e.target.closest('.copy-item') || e.target.closest('.submenu-app')) return;
         const modalId = this.getAttribute('data-modal');
-        if (modalId) {
-            openModal(modalId);
-        }
+        if (modalId) openModal(modalId);
     });
 
     card.addEventListener('keydown', function(e) {
@@ -85,9 +79,7 @@ document.querySelectorAll('.member-card').forEach(card => {
             if (e.target.closest('.copy-item') || e.target.closest('.submenu-app')) return;
             e.preventDefault();
             const modalId = this.getAttribute('data-modal');
-            if (modalId) {
-                openModal(modalId);
-            }
+            if (modalId) openModal(modalId);
         }
     });
 });
@@ -149,18 +141,6 @@ document.querySelectorAll('.member-card').forEach(card => {
         if (!textToCopy) return;
         copyText(textToCopy);
     });
-
-    document.addEventListener('keydown', function(e) {
-        if (e.key !== 'Enter' && e.key !== ' ') return;
-        const item = e.target.closest('.copy-item');
-        if (!item) return;
-
-        e.preventDefault();
-        e.stopPropagation();
-        const textToCopy = item.getAttribute('data-copy');
-        if (!textToCopy) return;
-        copyText(textToCopy);
-    });
 })();
 
 // ========== 开发软件格子点击（跳转到上方卡片） ==========
@@ -193,34 +173,7 @@ document.querySelectorAll('.member-card').forEach(card => {
                 }, 350);
             }
         });
-
-        app.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                e.stopPropagation();
-                const targetId = this.getAttribute('data-scroll');
-                if (targetId) {
-                    const modal = this.closest('.modal-overlay');
-                    if (modal) closeModal(modal.id);
-                    setTimeout(() => {
-                        scrollToTarget(targetId);
-                    }, 350);
-                }
-            }
-        });
     });
-})();
-
-// ========== 深色模式监听 ==========
-(function() {
-    if (window.matchMedia) {
-        const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        if (darkModeQuery.addEventListener) {
-            darkModeQuery.addEventListener('change', () => {
-                // 现代浏览器会自动应用 CSS 媒体查询
-            });
-        }
-    }
 })();
 
 // ========== 番茄钟下载区交互 ==========
@@ -243,29 +196,29 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('[data-action="not-supported"]').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            if (typeof window.showToast === 'function') {
-                window.showToast('暂不支持');
-            }
+            window.showToast('暂不支持');
         });
     });
 });
+
 // ========== 背景音乐播放器 ==========
 (function() {
     // 歌曲列表数据
     const musicList = [
         {
+            title: "Counting Stars",
+            artist: "OneRepublic",
+            src: "OneRepublic - Counting Stars_L.mp3"
+        },
+        {
             title: "Maybe(prod. lukrative & mixed matches)",
             artist: "mixed matches",
             src: "mixed matches - Maybe(prod. lukrative & mixed matches).mp3"
-        },
-        {
-            title: "示例歌曲（请替换）",
-            artist: "未知歌手",
-            src: "song.mp3"
         }
     ];
 
     let currentIndex = 0;
+    let playMode = 'list'; // 'list' 或 'single'
     const audio = new Audio();
     
     const musicToggle = document.getElementById('music-toggle');
@@ -275,6 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const playBtn = document.getElementById('play-btn');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
+    const modeBtn = document.getElementById('mode-btn');
     const musicListContainer = document.getElementById('music-list');
 
     // 初始化渲染列表
@@ -308,7 +262,6 @@ document.addEventListener('DOMContentLoaded', function() {
         items.forEach((item, i) => {
             item.classList.toggle('active', i === index);
         });
-        
         updatePlayButton();
     }
 
@@ -327,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function playSong() {
         audio.play().catch(e => {
             console.log('播放被阻止或文件不存在:', e);
-            window.showToast && window.showToast('播放失败，请检查音频文件');
+            window.showToast('播放失败，请检查音频文件');
         });
     }
 
@@ -353,11 +306,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 播放/暂停按钮点击事件
     playBtn.addEventListener('click', function() {
-        if (audio.paused) {
-            playSong();
-        } else {
-            pauseSong();
-        }
+        if (audio.paused) playSong();
+        else pauseSong();
     });
 
     // 上一首
@@ -376,15 +326,34 @@ document.addEventListener('DOMContentLoaded', function() {
         playSong();
     });
 
+    // 播放模式切换
+    modeBtn.addEventListener('click', function() {
+        if (playMode === 'list') {
+            playMode = 'single';
+            modeBtn.textContent = '🔂';
+            window.showToast('单曲循环');
+        } else {
+            playMode = 'list';
+            modeBtn.textContent = '🔁';
+            window.showToast('列表循环');
+        }
+    });
+
     // 监听播放状态改变
     audio.addEventListener('play', updatePlayButton);
     audio.addEventListener('pause', updatePlayButton);
+    
+    // 播放结束处理
     audio.addEventListener('ended', function() {
-        // 自动播放下一首
-        let newIndex = currentIndex + 1;
-        if (newIndex >= musicList.length) newIndex = 0;
-        loadSong(newIndex);
-        playSong();
+        if (playMode === 'single') {
+            audio.currentTime = 0;
+            playSong();
+        } else {
+            let newIndex = currentIndex + 1;
+            if (newIndex >= musicList.length) newIndex = 0;
+            loadSong(newIndex);
+            playSong();
+        }
     });
 
     // 初始化
