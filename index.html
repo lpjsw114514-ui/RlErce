@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 原有内容保持不变 -->
     <div class="container" id="top">
         <header class="header">
             <h1>L-Mini Tools</h1>
@@ -54,8 +53,6 @@
         <section class="section">
             <h2 class="section-title">成员页</h2>
             <div class="members-grid">
-                <!-- 成员数据... -->
-                <!-- (为节省篇幅，此处省略成员卡片代码，保持你原来的即可) -->
                 <!-- 成员 1 -->
                 <div class="member-card" data-modal="member-modal-1" role="button" tabindex="0">
                     <div class="member-header">
@@ -65,6 +62,7 @@
                     <span class="member-role">开发者 / 运营</span>
                     <p class="member-desc">运营不是给。爱用ai的啥b。</p>
                 </div>
+
                 <!-- 成员 2 -->
                 <div class="member-card" data-modal="member-modal-2" role="button" tabindex="0">
                     <div class="member-header">
@@ -74,6 +72,7 @@
                     <span class="member-role">视频宣发（抖音）</span>
                     <p class="member-desc">一名初中生，负责在抖音上发视频</p>
                 </div>
+
                 <!-- 成员 3：无他 -->
                 <div class="member-card" data-modal="member-modal-3" role="button" tabindex="0">
                     <div class="member-header">
@@ -83,6 +82,7 @@
                     <span class="member-role">合作伙伴</span>
                     <p class="member-desc">高中生一名，国家级帆船运动员，無境团队创始人之一</p>
                 </div>
+
                 <!-- 成员 4：无 -->
                 <div class="member-card" data-modal="member-modal-4" role="button" tabindex="0">
                     <div class="member-header">
@@ -92,6 +92,7 @@
                     <span class="member-role">开发者</span>
                     <p class="member-desc">我是人</p>
                 </div>
+
                 <!-- 成员 5 -->
                 <div class="member-card" data-modal="member-modal-5" role="button" tabindex="0">
                     <div class="member-header">
@@ -100,6 +101,7 @@
                     <span class="member-role">成员</span>
                     <p class="member-desc empty">（介绍待填写）</p>
                 </div>
+
                 <!-- 成员 6 -->
                 <div class="member-card" data-modal="member-modal-6" role="button" tabindex="0">
                     <div class="member-header">
@@ -130,15 +132,18 @@
                     <span class="copy-badge">点击复制</span>
                 </div>
             </div>
+            <!-- 版权声明 -->
+            <div class="copyright-notice">
+                如存在版权问题请联系"kskbl114514@hotmail.com"。
+            </div>
         </section>
     </div>
 
     <div class="toast" id="toast">已复制到剪贴板</div>
 
-    <!-- ================= 弹窗区域 (省略部分内容，保持你原来的一致) ================= -->
+    <!-- ================= 弹窗区域 ================= -->
     <!-- 番茄钟 Modal -->
     <div class="modal-overlay" id="tomato-modal">
-        <!-- ... 保持原样 ... -->
         <div class="modal-content">
             <button class="modal-close" data-close="tomato-modal" aria-label="关闭">✕</button>
             <h2 class="modal-title">番茄钟</h2>
@@ -164,7 +169,7 @@
             <div class="modal-actions">
                 <a href="https://fqz1.pages.dev" target="_blank" rel="noopener" class="modal-btn">前往使用 →</a>
             </div>
-
+            <!-- 下载区域 -->
             <div class="download-section">
                 <button class="modal-btn download-toggle" id="toggle-download">立刻下载</button>
                 <div class="download-options" id="download-options">
@@ -200,24 +205,307 @@
             </div>
         </div>
     </div>
-    
-    <!-- 其他弹窗代码保持不变... -->
+
+    <!-- ECG Modal -->
+    <div class="modal-overlay" id="ecg-modal">
+        <div class="modal-content">
+            <button class="modal-close" data-close="ecg-modal" aria-label="关闭">✕</button>
+            <h2 class="modal-title">ECG · 心电监护</h2>
+            <p class="modal-dev"><span>开发者：</span> <span>。</span></p>
+            <div class="modal-section">
+                <h3>软件简介</h3>
+                <p>黑白极简的浏览器心电监护页面。通过 Web Bluetooth 直连心率设备，实时绘制 ECG 波形，每次心跳迸发白色星光。</p>
+            </div>
+            <div class="modal-section">
+                <h3>主要功能</h3>
+                <ul>
+                    <li>Web Bluetooth 直连支持标准 BLE 心率服务（0x180D）的设备</li>
+                    <li>200Hz 采样实时心电图，P/Q/R/S/T 五波叠加</li>
+                    <li>每次 R 峰触发白色星光粒子与涟漪</li>
+                    <li>黑白极简视觉</li>
+                    <li>未连接设备时可切换模拟模式，拖动速度滑块模拟 68–180 BPM</li>
+                    <li>内置兼容设备列表</li>
+                </ul>
+            </div>
+            <div class="modal-section">
+                <h3>兼容设备（部分）</h3>
+                <p>华为、Polar、Garmin、Wahoo、小米/Amazfit、Samsung、Apple Watch、Suunto 等支持标准 BLE 心率服务的设备均可连接，部分手表需先在设备端开启心率广播。</p>
+            </div>
+            <div class="modal-actions">
+                <a href="https://xinlv.pages.dev" target="_blank" rel="noopener" class="modal-btn">前往使用 →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- WUJING Modal -->
+    <div class="modal-overlay" id="wujing-modal">
+        <div class="modal-content">
+            <button class="modal-close" data-close="wujing-modal" aria-label="关闭">✕</button>
+            <h2 class="modal-title">WUJING ·無境</h2>
+            <p class="modal-dev"><span>团队：</span> <span>综合创作团队</span></p>
+            <div class="modal-section">
+                <h3>团队简介</h3>
+                <p>「無境」，意为没有边界——创作不应被形式束缚。</p>
+                <p style="margin-top: 0.6rem;">WUJING ·無境 是一支综合创作团队，由无他与风起多意创立于2025年末。我们致力于极简的设计、卓越的执行，把每一个想法打磨成可交付的极致作品。</p>
+                <p style="margin-top: 0.6rem;">我们坚持以赤诚之心悉心打磨造就卓越，为我们的用户呈上最好的臻品。我们的目标只有两点：坚持，进步。</p>
+                <p style="margin-top: 0.6rem;">愿我们的心之理想，永无边界。</p>
+            </div>
+            <div class="modal-actions">
+                <a href="https://wujingcn.top/" target="_blank" rel="noopener" class="modal-btn">立即体验 →</a>
+                <a href="https://wujingwebsitethetop.pages.dev/" target="_blank" rel="noopener" class="modal-btn modal-btn-secondary">备用网站</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= 成员模态框 ================= -->
+    <!-- 成员 1 -->
+    <div class="modal-overlay" id="member-modal-1">
+        <div class="modal-content member-modal-content">
+            <button class="modal-close" data-close="member-modal-1" aria-label="关闭">✕</button>
+            <h2 class="modal-title">成员信息</h2>
+            <div class="member-modal-header">
+                <img src="A3.jpg" alt="头像" class="member-modal-avatar">
+                <div class="member-modal-info">
+                    <div class="member-modal-name">名称：。</div>
+                    <span class="member-modal-role">运营 / 开发者</span>
+                </div>
+            </div>
+            <div class="member-modal-copy-section">
+                <div class="copy-item" data-copy="3864967973" role="button" tabindex="0">
+                    <span class="label">QQ号：</span>
+                    <span class="value">3864967973</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="暂不提供" role="button" tabindex="0">
+                    <span class="label">手机号：</span>
+                    <span class="value">暂不提供</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="kskbl114514@hotmail.com" role="button" tabindex="0">
+                    <span class="label">邮箱：</span>
+                    <span class="value">kskbl114514@hotmail.com</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+            </div>
+            <div class="modal-section">
+                <h3>成员介绍</h3>
+                <p>我真的不是给。爱用AI的啥b。</p>
+            </div>
+            <div class="modal-section">
+                <h3>开发网站：</h3>
+                <div class="member-apps-grid">
+                    <div class="submenu-app" data-scroll="tomato-card" role="button" tabindex="0">
+                        <img src="A1.png" alt="番茄钟" class="submenu-app-icon">
+                        <span class="submenu-app-name">番茄钟</span>
+                    </div>
+                    <div class="submenu-app" data-scroll="ecg-card" role="button" tabindex="0">
+                        <img src="A2.png" alt="ECG" class="submenu-app-icon">
+                        <span class="submenu-app-name">ECG · 心电监护</span>
+                    </div>
+                    <div class="submenu-app" data-scroll="top" role="button" tabindex="0">
+                        <span class="submenu-app-placeholder">🏠</span>
+                        <span class="submenu-app-name">本站</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 成员 2 -->
+    <div class="modal-overlay" id="member-modal-2">
+        <div class="modal-content member-modal-content">
+            <button class="modal-close" data-close="member-modal-2" aria-label="关闭">✕</button>
+            <h2 class="modal-title">成员信息</h2>
+            <div class="member-modal-header">
+                <img src="A4.jpg" alt="头像" class="member-modal-avatar">
+                <div class="member-modal-info">
+                    <div class="member-modal-name">名称：青山依旧</div>
+                    <span class="member-modal-role">视频宣发（抖音）</span>
+                </div>
+            </div>
+            <div class="member-modal-copy-section">
+                <div class="copy-item" data-copy="3984650160" role="button" tabindex="0">
+                    <span class="label">QQ号：</span>
+                    <span class="value">3984650160</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="不知道" role="button" tabindex="0">
+                    <span class="label">手机号：</span>
+                    <span class="value">不知道</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="xpq.8888.8888.8888@petalmail.com" role="button" tabindex="0">
+                    <span class="label">邮箱：</span>
+                    <span class="value">xpq.8888.8888.8888@petalmail.com</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="XPQ00001" role="button" tabindex="0">
+                    <span class="label">抖音号：</span>
+                    <span class="value">XPQ00001</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+            </div>
+            <div class="modal-section">
+                <h3>成员介绍</h3>
+                <p>一名初中生，负责在抖音上发视频</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 成员 3 -->
+    <div class="modal-overlay" id="member-modal-3">
+        <div class="modal-content member-modal-content">
+            <button class="modal-close" data-close="member-modal-3" aria-label="关闭">✕</button>
+            <h2 class="modal-title">成员信息</h2>
+            <div class="member-modal-header">
+                <img src="A6.JPG" alt="头像" class="member-modal-avatar">
+                <div class="member-modal-info">
+                    <div class="member-modal-name">名称：无他</div>
+                    <span class="member-modal-role">合作伙伴</span>
+                </div>
+            </div>
+            <div class="member-modal-copy-section">
+                <div class="copy-item" data-copy="info@wujingcn.top" role="button" tabindex="0">
+                    <span class="label">邮箱：</span>
+                    <span class="value">info@wujingcn.top</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+            </div>
+            <div class="modal-section">
+                <h3>成员介绍</h3>
+                <p>高中生一名，国家级帆船运动员，無境团队创始人之一，坚持卓越的设计理念。</p>
+            </div>
+            <div class="modal-section">
+                <h3>开发网站：</h3>
+                <div class="member-apps-grid">
+                    <div class="submenu-app" data-scroll="wujing-card" role="button" tabindex="0">
+                        <img src="A5.jpg" alt="WUJING ·無境" class="submenu-app-icon">
+                        <span class="submenu-app-name">WUJING ·無境</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 成员 4 -->
+    <div class="modal-overlay" id="member-modal-4">
+        <div class="modal-content member-modal-content">
+            <button class="modal-close" data-close="member-modal-4" aria-label="关闭">✕</button>
+            <h2 class="modal-title">成员信息</h2>
+            <div class="member-modal-header">
+                <img src="A8.jpg" alt="头像" class="member-modal-avatar">
+                <div class="member-modal-info">
+                    <div class="member-modal-name">名称：无</div>
+                    <span class="member-modal-role">开发者</span>
+                </div>
+            </div>
+            <div class="member-modal-copy-section">
+                <div class="copy-item" data-copy="1783257697" role="button" tabindex="0">
+                    <span class="label">QQ号：</span>
+                    <span class="value">1783257697</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="zingkin549@gmail.com" role="button" tabindex="0">
+                    <span class="label">邮箱：</span>
+                    <span class="value">zingkin549@gmail.com</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+            </div>
+            <div class="modal-section">
+                <h3>成员介绍</h3>
+                <p>我是人</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 成员 5 -->
+    <div class="modal-overlay" id="member-modal-5">
+        <div class="modal-content member-modal-content">
+            <button class="modal-close" data-close="member-modal-5" aria-label="关闭">✕</button>
+            <h2 class="modal-title">成员信息</h2>
+            <div class="member-modal-header">
+                <div class="member-modal-avatar placeholder">?</div>
+                <div class="member-modal-info">
+                    <div class="member-modal-name">名称：（待填写）</div>
+                    <span class="member-modal-role">成员</span>
+                </div>
+            </div>
+            <div class="member-modal-copy-section">
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">QQ号：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">手机号：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">邮箱：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+            </div>
+            <div class="modal-section">
+                <h3>成员介绍</h3>
+                <p class="empty">（介绍待填写）</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 成员 6 -->
+    <div class="modal-overlay" id="member-modal-6">
+        <div class="modal-content member-modal-content">
+            <button class="modal-close" data-close="member-modal-6" aria-label="关闭">✕</button>
+            <h2 class="modal-title">成员信息</h2>
+            <div class="member-modal-header">
+                <div class="member-modal-avatar placeholder">?</div>
+                <div class="member-modal-info">
+                    <div class="member-modal-name">名称：（待填写）</div>
+                    <span class="member-modal-role">成员</span>
+                </div>
+            </div>
+            <div class="member-modal-copy-section">
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">QQ号：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">手机号：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+                <div class="copy-item" data-copy="" role="button" tabindex="0">
+                    <span class="label">邮箱：</span>
+                    <span class="value">（待填写）</span>
+                    <span class="copy-badge">点击复制</span>
+                </div>
+            </div>
+            <div class="modal-section">
+                <h3>成员介绍</h3>
+                <p class="empty">（介绍待填写）</p>
+            </div>
+        </div>
+    </div>
 
     <!-- ================= 背景音乐播放器 ================= -->
     <div class="music-player" id="music-player">
         <!-- 播放面板 -->
         <div class="music-panel" id="music-panel">
             <div class="music-info">
-                <h4 id="music-title">Maybe(prod. lukrative & mixed matches)</h4>
-                <p id="music-artist">mixed matches</p>
+                <h4 id="music-title">加载中...</h4>
+                <p id="music-artist">-</p>
             </div>
             <div class="music-controls">
                 <button id="prev-btn" aria-label="上一首">⏮</button>
                 <button id="play-btn" aria-label="播放/暂停">▶</button>
                 <button id="next-btn" aria-label="下一首">⏭</button>
+                <button id="mode-btn" aria-label="播放模式">🔁</button>
             </div>
             <div class="music-list" id="music-list">
-                <!-- JS 动态生成歌曲列表 -->
+                <!-- JS 动态生成 -->
             </div>
         </div>
         
