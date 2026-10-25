@@ -249,3 +249,145 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+// ========== 背景音乐播放器 ==========
+(function() {
+    // 歌曲列表数据
+    const musicList = [
+        {
+            title: "Maybe(prod. lukrative & mixed matches)",
+            artist: "mixed matches",
+            src: "mixed matches - Maybe(prod. lukrative & mixed matches).mp3"
+        },
+        {
+            title: "示例歌曲（请替换）",
+            artist: "未知歌手",
+            src: "song.mp3"
+        }
+    ];
+
+    let currentIndex = 0;
+    const audio = new Audio();
+    
+    const musicToggle = document.getElementById('music-toggle');
+    const musicPanel = document.getElementById('music-panel');
+    const musicTitle = document.getElementById('music-title');
+    const musicArtist = document.getElementById('music-artist');
+    const playBtn = document.getElementById('play-btn');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const musicListContainer = document.getElementById('music-list');
+
+    // 初始化渲染列表
+    function renderMusicList() {
+        musicListContainer.innerHTML = '';
+        musicList.forEach((song, index) => {
+            const div = document.createElement('div');
+            div.className = `music-item ${index === currentIndex ? 'active' : ''}`;
+            div.innerHTML = `
+                <span class="music-item-title">${song.title}</span>
+                <span class="music-item-artist">${song.artist}</span>
+            `;
+            div.addEventListener('click', () => {
+                loadSong(index);
+                playSong();
+            });
+            musicListContainer.appendChild(div);
+        });
+    }
+
+    // 加载歌曲
+    function loadSong(index) {
+        currentIndex = index;
+        const song = musicList[index];
+        audio.src = song.src;
+        musicTitle.textContent = song.title;
+        musicArtist.textContent = song.artist;
+        
+        // 更新列表高亮
+        const items = musicListContainer.querySelectorAll('.music-item');
+        items.forEach((item, i) => {
+            item.classList.toggle('active', i === index);
+        });
+        
+        updatePlayButton();
+    }
+
+    // 更新播放/暂停按钮状态
+    function updatePlayButton() {
+        if (audio.paused) {
+            playBtn.textContent = '▶';
+            musicToggle.classList.remove('playing');
+        } else {
+            playBtn.textContent = '⏸';
+            musicToggle.classList.add('playing');
+        }
+    }
+
+    // 播放
+    function playSong() {
+        audio.play().catch(e => {
+            console.log('播放被阻止或文件不存在:', e);
+            window.showToast && window.showToast('播放失败，请检查音频文件');
+        });
+    }
+
+    // 暂停
+    function pauseSong() {
+        audio.pause();
+    }
+
+    // 点击面板外关闭面板
+    document.addEventListener('click', function(e) {
+        if (musicPanel.classList.contains('show') && 
+            !musicPanel.contains(e.target) && 
+            !musicToggle.contains(e.target)) {
+            musicPanel.classList.remove('show');
+        }
+    });
+
+    // 悬浮按钮点击事件
+    musicToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        musicPanel.classList.toggle('show');
+    });
+
+    // 播放/暂停按钮点击事件
+    playBtn.addEventListener('click', function() {
+        if (audio.paused) {
+            playSong();
+        } else {
+            pauseSong();
+        }
+    });
+
+    // 上一首
+    prevBtn.addEventListener('click', function() {
+        let newIndex = currentIndex - 1;
+        if (newIndex < 0) newIndex = musicList.length - 1;
+        loadSong(newIndex);
+        playSong();
+    });
+
+    // 下一首
+    nextBtn.addEventListener('click', function() {
+        let newIndex = currentIndex + 1;
+        if (newIndex >= musicList.length) newIndex = 0;
+        loadSong(newIndex);
+        playSong();
+    });
+
+    // 监听播放状态改变
+    audio.addEventListener('play', updatePlayButton);
+    audio.addEventListener('pause', updatePlayButton);
+    audio.addEventListener('ended', function() {
+        // 自动播放下一首
+        let newIndex = currentIndex + 1;
+        if (newIndex >= musicList.length) newIndex = 0;
+        loadSong(newIndex);
+        playSong();
+    });
+
+    // 初始化
+    renderMusicList();
+    loadSong(0);
+})();
