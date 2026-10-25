@@ -494,6 +494,8 @@ body.modal-open {
     box-shadow: 0 4px 16px rgba(255, 77, 77, 0.3);
     display: inline-block;
     touch-action: manipulation;
+    border: none;
+    cursor: pointer;
 }
 
 .modal-btn:active {
@@ -628,6 +630,89 @@ body.modal-open {
     word-break: break-word;
 }
 
+/* ========== 番茄钟下载区样式 ========== */
+.download-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--modal-section-border);
+}
+
+.download-toggle {
+    width: 100%;
+    margin-bottom: 1rem;
+    background: var(--copy-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--copy-border);
+    box-shadow: none;
+}
+
+.download-options {
+    display: none;
+    gap: 1.5rem;
+    animation: modalIn 0.3s ease;
+}
+
+.download-options.active {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.os-section {
+    flex: 1;
+    min-width: 200px;
+    background: var(--copy-bg);
+    border-radius: 16px;
+    padding: 1.2rem;
+    border: 1px solid var(--copy-border);
+}
+
+.os-section h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    text-align: center;
+    border-bottom: 1px dashed var(--copy-border);
+    padding-bottom: 0.5rem;
+}
+
+.cloud-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.cloud-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem;
+    background: var(--modal-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--copy-border);
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.cloud-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cloud-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--copy-border);
+}
+
 /* ========== 悬停效果 ========== */
 @media (hover: hover) {
     .tool-card:hover {
@@ -674,6 +759,18 @@ body.modal-open {
         color: var(--accent);
         box-shadow: none;
         transform: translateY(-2px);
+    }
+
+    .download-toggle:hover {
+        background: var(--accent-bg);
+        border-color: var(--accent-border);
+        color: var(--accent);
+    }
+
+    .cloud-btn:hover {
+        border-color: var(--accent-border);
+        color: var(--accent);
+        background: var(--accent-bg);
     }
 }
 
