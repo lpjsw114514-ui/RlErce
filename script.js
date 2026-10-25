@@ -229,6 +229,11 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "菊次郎的夏天",
             artist: "K.Williams",
             src: "K.Williams - 菊次郎的夏天.mp3"
+        },
+        {
+            title: "鸟之诗",
+            artist: "V.A.",
+            src: "V.A. - 鸟之诗.mp3"
         }
     ];
 
