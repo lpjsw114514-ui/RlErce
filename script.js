@@ -214,6 +214,21 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Maybe(prod. lukrative & mixed matches)",
             artist: "mixed matches",
             src: "mixed matches - Maybe(prod. lukrative & mixed matches).mp3"
+        },
+        {
+            title: "Sample This（氛围纯享）",
+            artist: "Unicorn",
+            src: "Unicorn - Sample This（氛围纯享）.mp3"
+        },
+        {
+            title: "Sample this",
+            artist: "highroom",
+            src: "highroom - Sample this (佳楠小曲).mp3"
+        },
+        {
+            title: "菊次郎的夏天",
+            artist: "K.Williams",
+            src: "K.Williams - 菊次郎的夏天.mp3"
         }
     ];
 
@@ -356,7 +371,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // 查找默认歌曲“菊次郎的夏天”的索引，找不到则用第一首
+    const defaultSongIndex = musicList.findIndex(song => song.title === '菊次郎的夏天');
+    const initIndex = defaultSongIndex !== -1 ? defaultSongIndex : 0;
+
     // 初始化
     renderMusicList();
-    loadSong(0);
+    loadSong(initIndex);
 })();
