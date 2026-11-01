@@ -206,6 +206,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // 歌曲列表数据
     const musicList = [
         {
+            title: "おはなばたけ (花田)",
+            artist: "近藤浩治",
+            src: "B1.mp3"
+        },
+        {
             title: "Counting Stars",
             artist: "OneRepublic",
             src: "OneRepublic - Counting Stars_L.mp3"
@@ -300,7 +305,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function playSong() {
         audio.play().catch(e => {
             console.log('播放被阻止或文件不存在:', e);
-            window.showToast('播放失败，请检查音频文件');
         });
     }
 
@@ -376,11 +380,40 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // 查找默认歌曲“菊次郎的夏天”的索引，找不到则用第一首
-    const defaultSongIndex = musicList.findIndex(song => song.title === '菊次郎的夏天');
+    // 查找默认歌曲“おはなばたけ (花田)”的索引，找不到则用第一首
+    const defaultSongIndex = musicList.findIndex(song => song.title === 'おはなばたけ (花田)');
     const initIndex = defaultSongIndex !== -1 ? defaultSongIndex : 0;
 
     // 初始化
     renderMusicList();
     loadSong(initIndex);
+
+    // ================== 自动播放逻辑处理 ==================
+    // 尝试立即播放
+    const playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            // 自动播放成功
+            console.log("自动播放成功");
+        }).catch(error => {
+            // 自动播放被浏览器拦截（通常是因为没有用户交互）
+            console.log("自动播放被拦截，等待用户首次交互...");
+            
+            // 定义一个触发播放的函数
+            const startPlayOnInteraction = () => {
+                audio.play().then(() => {
+                    // 播放成功，移除监听器
+                    document.removeEventListener('click', startPlayOnInteraction);
+                    document.removeEventListener('touchstart', startPlayOnInteraction);
+                    document.removeEventListener('keydown', startPlayOnInteraction);
+                }).catch(e => console.log("仍然无法播放:", e));
+            };
+
+            // 监听用户第一次点击、触摸或按键，立刻开始播放
+            document.addEventListener('click', startPlayOnInteraction, { once: true });
+            document.addEventListener('touchstart', startPlayOnInteraction, { once: true });
+            document.addEventListener('keydown', startPlayOnInteraction, { once: true });
+        });
+    }
 })();
