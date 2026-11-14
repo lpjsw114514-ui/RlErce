@@ -284,12 +284,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!toggle) return;
         toggle.classList.add('region-blocked');
         toggle.setAttribute('aria-disabled', 'true');
-        toggle.setAttribute('title', '由于相关法律法规，此组件在当前国家和地区无法使用');
+        toggle.setAttribute('title', '由于相关法律法规，此组件在当前国家或地区无法使用');
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             if (window.showToast) {
-                window.showToast('由于相关法律法规，此组件在当前国家和地区无法使用', true);
+                window.showToast('由于相关法律法规，此组件在当前国家或地区无法使用', true);
             }
         });
     }
