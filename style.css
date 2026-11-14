@@ -361,6 +361,17 @@ body.modal-open {
     opacity: 1;
 }
 
+/* 长文本提示（如地区限制说明） */
+.toast.notice {
+    max-width: min(86vw, 420px);
+    border-radius: 18px;
+    text-align: center;
+    line-height: 1.6;
+    padding: 0.9rem 1.6rem;
+    white-space: normal;
+    word-break: break-word;
+}
+
 /* ========== 模态框通用样式 ========== */
 .modal-overlay {
     position: fixed;
@@ -744,6 +755,19 @@ body.modal-open {
     text-overflow: ellipsis;
 }
 
+/* ========== 地区限制（禁用状态） ========== */
+.music-toggle.region-blocked {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(100%);
+}
+
+.music-toggle.region-blocked:hover {
+    transform: none;
+    border-color: var(--card-border);
+    color: var(--text-muted);
+}
+
 /* ========== 悬停效果 ========== */
 @media (hover: hover) {
     .tool-card:hover {
@@ -832,7 +856,7 @@ body.modal-open {
     .submenu-app { padding: 0.8rem 0.4rem; }
     .submenu-app-icon, .submenu-app-placeholder { width: 36px; height: 36px; }
     .submenu-app-name { font-size: 0.7rem; }
-    
+
     .music-player { bottom: 1.5rem; left: 1.5rem; }
     .music-panel { width: 240px; }
 }
